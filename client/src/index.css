@@ -133,3 +133,31 @@ button:hover {
 .popup__input_holder button:hover {
   background-color: #c4c4c4;
 }
+.completed-tasks-container {
+  margin-top: 40px; /* Adjust margin top as needed */
+}
+
+.completed-tasks-header {
+  text-align: center; /* Center align the header */
+  font-size: 2rem; /* Adjust font size as needed */
+  color: #ffffff; /* White color for header text */
+}
+
+.completed-tasks-list {
+  margin-top: 20px; /* Adjust margin top as needed */
+  padding: 0; /* Remove default padding */
+  list-style-type: none; /* Remove bullet points */
+  max-width: 400px; /* Set maximum width for the completed task list */
+  margin: 0 auto; /* Center the completed task list */
+}
+
+.completed-task {
+  background-color: #cfcfcf; /* Light gray background */
+  padding: 10px 20px; /* Adjust padding as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #252525; /* Dark text color */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 10px; /* Adjust margin bottom as needed */
+}
