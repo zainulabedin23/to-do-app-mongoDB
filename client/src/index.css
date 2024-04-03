@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #252525;
-  color: #fff;
+  background-color: #d219196b;
+  color: #ffffff; 
 }
 
 .container {
@@ -17,6 +17,7 @@ body {
 .title {
   text-align: center;
   font-size: 3rem;
+  color: #ffffff;
 }
 
 .input_holder {
@@ -29,10 +30,11 @@ body {
 input,
 button {
   padding: 10px 20px;
-  background-color: #696969;
-  color: #fff;
+  background-color: #e9cfc7;
+  color: #252525;
   outline: none;
   border: none;
+  border-radius: 20px;
 }
 
 input {
@@ -40,12 +42,12 @@ input {
 }
 
 input::placeholder {
-  color: #fff;
+  color: #252525;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #4d4d4d;
+  background-color: #cfcfcf;
 }
 
 .list {
@@ -56,11 +58,13 @@ button:hover {
 }
 
 .toDo {
-  background-color: #696969;
+  background-color: #cfcfcf;
   padding: 10px 20px;
   display: flex;
+  color:#252525;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
 }
 
 .icons {
@@ -70,7 +74,7 @@ button:hover {
 
 .icon:hover {
   cursor: pointer;
-  color: #cfcfcf;
+  color: #997e7e;
 }
 
 .backdrop {
