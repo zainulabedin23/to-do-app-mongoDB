@@ -11,7 +11,7 @@ const App = () => {
   const [updateUI, setUpdateUI] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState({});
-  
+  const [selectedOption, setSelectedOption] = useState("create");
 
   useEffect(() => {
     axios
@@ -35,36 +35,50 @@ const App = () => {
       .catch((err) => console.log(err));
   };
 
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  };
+
+  const handleUpdateUI = () => {
+    setUpdateUI(prevState => !prevState);
+  };
+
   return (
     <main>
-    
+      <div className="sidebar">
+        <button onClick={() => handleOptionChange("create")}>Create ToDo</button>
+        <button onClick={() => handleOptionChange("completed")}>Completed</button>
+      </div>
       <div className="container">
         <h1 className="title">ToDo App</h1>
-        <div className="input_holder">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="Add a ToDo..."
-          />
-          <button onClick={saveToDo}>Add</button>
-        </div>
-        <div className="list">
-        {toDos
-  .filter((el) => !el.completed) 
-  .map((el) => (
-    <ToDo
-      key={el._id}
-      text={el.toDo}
-      id={el._id}
-      complete={el.complete}
-      setUpdateUI={setUpdateUI}
-      setShowPopup={setShowPopup}
-      setPopupContent={setPopupContent}
-    />
-  ))}
-
-        </div>
+        {selectedOption === "create" && (
+          <div className="input_holder">
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="Add a ToDo..."
+            />
+            <button onClick={saveToDo}>Add</button>
+          </div>
+        )}
+        {selectedOption === "create" && (
+          <div className="list">
+            {toDos
+              .filter((el) => !el.completed)
+              .map((el) => (
+                <ToDo
+                  key={el._id}
+                  text={el.toDo}
+                  id={el._id}
+                  complete={el.complete}
+                  setUpdateUI={setUpdateUI}
+                  setShowPopup={setShowPopup}
+                  setPopupContent={setPopupContent}
+                />
+              ))}
+          </div>
+        )}
       </div>
       {showPopup && (
         <Popup
@@ -73,7 +87,7 @@ const App = () => {
           setUpdateUI={setUpdateUI}
         />
       )}
-        <CompletedTasks completedTasks={toDos} />
+      {selectedOption === "completed" && <CompletedTasks completedTasks={toDos} onUpdateUI={handleUpdateUI} setUpdateUI={setUpdateUI} />}
     </main>
   );
 };
