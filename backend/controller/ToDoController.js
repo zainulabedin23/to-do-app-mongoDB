@@ -1,65 +1,61 @@
 const ToDoModel = require("../models/ToDoModel");
 
-module.exports.getToDos = async (req, res) => {
-  try {
-    const toDos = await ToDoModel.find();
-    res.send(toDos);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: err, msg: "Internal Server Error" });
+class ToDoController {
+  async getToDos(req, res) {
+    try {
+      const toDos = await ToDoModel.find();
+      res.send(toDos);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send({ error: err, msg: "Internal Server Error" });
+    }
   }
-};
 
-module.exports.saveToDo = (req, res) => {
-  const { toDo } = req.body;
-
-  ToDoModel.create({ toDo })
-    .then((data) => {
+  async saveToDo(req, res) {
+    try {
+      const { toDo } = req.body;
+      const data = await ToDoModel.create({ toDo });
       console.log("Saved Successfully...");
       res.status(201).send(data);
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error(err);
       res.status(500).send({ error: err, msg: "Something went wrong!" });
-    });
-};
+    }
+  }
 
-module.exports.updateToDo = (req, res) => {
-  const { id } = req.params;
-  const { toDo } = req.body;
-
-  ToDoModel.findByIdAndUpdate(id, { toDo })
-    .then(() => {
+  async updateToDo(req, res) {
+    try {
+      const { id } = req.params;
+      const { toDo } = req.body;
+      await ToDoModel.findByIdAndUpdate(id, { toDo });
       res.send("Updated Successfully....");
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error(err);
       res.status(500).send({ error: err, msg: "Something went wrong!" });
-    });
-};
+    }
+  }
 
-module.exports.completeToDo = (req, res) => {
-  const { id } = req.params;
-
-  ToDoModel.findByIdAndUpdate(id, { completed: true })
-    .then(() => {
+  async completeToDo(req, res) {
+    try {
+      const { id } = req.params;
+      await ToDoModel.findByIdAndUpdate(id, { completed: true });
       res.send("Marked as Complete Successfully....");
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error(err);
       res.status(500).send({ error: err, msg: "Something went wrong!" });
-    });
-};
+    }
+  }
 
-module.exports.deleteToDo = (req, res) => {
-  const { id } = req.params;
-
-  ToDoModel.findByIdAndDelete(id)
-    .then(() => {
+  async deleteToDo(req, res) {
+    try {
+      const { id } = req.params;
+      await ToDoModel.findByIdAndDelete(id);
       res.send("Deleted Successfully....");
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error(err);
       res.status(500).send({ error: err, msg: "Something went wrong!" });
-    });
-};
+    }
+  }
+}
+
+module.exports = new ToDoController();

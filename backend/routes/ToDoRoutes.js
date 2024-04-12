@@ -1,18 +1,23 @@
 const { Router } = require("express");
-const {
-  getToDos,
-  saveToDo,
-  updateToDo,
-  deleteToDo,
-  completeToDo, 
-} = require("../controller/ToDoController");
+const ToDoController = require("../controller/ToDoController");
 
-const router = Router();
+class ToDoRouter {
+  constructor() {
+    this.router = Router();
+    this.initializeRoutes();
+  }
 
-router.get("/get", getToDos);
-router.post("/save", saveToDo);
-router.put("/update/:id", updateToDo);
-router.put("/complete/:id", completeToDo);
-router.delete("/delete/:id", deleteToDo);
+  initializeRoutes() {
+    this.router.get("/get", ToDoController.getToDos);
+    this.router.post("/save", ToDoController.saveToDo);
+    this.router.put("/update/:id", ToDoController.updateToDo);
+    this.router.put("/complete/:id", ToDoController.completeToDo);
+    this.router.delete("/delete/:id", ToDoController.deleteToDo);
+  }
 
-module.exports = router;
+  getRouter() {
+    return this.router;
+  }
+}
+
+module.exports = ToDoRouter;

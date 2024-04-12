@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #d219196b;
-  color: #ffffff; 
+  background-color: #FCF6F5;
+  color: #2C3E50; 
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
 .title {
   text-align: center;
   font-size: 3rem;
-  color: #ffffff;
+  color: #990011;
 }
 
 .input_holder {
@@ -30,8 +30,8 @@ body {
 input,
 button {
   padding: 10px 20px;
-  background-color: #e9cfc7;
-  color: #252525;
+  background-color: #F8B195;
+  color: #2C3E50;
   outline: none;
   border: none;
   border-radius: 20px;
@@ -42,12 +42,12 @@ input {
 }
 
 input::placeholder {
-  color: #252525;
+  color: #2C3E50;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #cfcfcf;
+  background-color: #D35400;
 }
 
 .list {
@@ -58,10 +58,10 @@ button:hover {
 }
 
 .toDo {
-  background-color: #cfcfcf;
+  background-color: #FAD7A0;
   padding: 10px 20px;
   display: flex;
-  color:#252525;
+  color: #2C3E50;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
@@ -74,7 +74,7 @@ button:hover {
 
 .icon:hover {
   cursor: pointer;
-  color: #997e7e;
+  color: #2C3E50;
 }
 
 .backdrop {
@@ -90,7 +90,7 @@ button:hover {
 
 .popup {
   position: relative;
-  background-color: #696969;
+  background-color: #FAD7A0;
   width: 400px;
   padding: 10px;
 }
@@ -104,7 +104,7 @@ button:hover {
 }
 
 .cross:hover {
-  color: #c4c4c4;
+  color: #FFFFFF;
 }
 
 .popup h1 {
@@ -122,17 +122,18 @@ button:hover {
 
 .popup__input_holder input,
 .popup__input_holder button {
-  background-color: #fff;
-  color: #000;
+  background-color: #FFFFFF;
+  color: #2C3E50;
 }
 
 .popup__input_holder input::placeholder {
-  color: #383838;
+  color: #95A5A6;
 }
 
 .popup__input_holder button:hover {
-  background-color: #c4c4c4;
+  background-color: #F39C12;
 }
+
 .completed-tasks-container {
   margin-top: 40px; /* Adjust margin top as needed */
 }
@@ -140,7 +141,7 @@ button:hover {
 .completed-tasks-header {
   text-align: center; /* Center align the header */
   font-size: 2rem; /* Adjust font size as needed */
-  color: #ffffff; /* White color for header text */
+  color: #990011; /* White color for header text */
 }
 
 .completed-tasks-list {
@@ -152,22 +153,23 @@ button:hover {
 }
 
 .completed-task {
-  background-color: #cfcfcf; /* Light gray background */
+  background-color: #FAD7A0; /* Light gray background */
   padding: 10px 20px; /* Adjust padding as needed */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #252525; /* Dark text color */
+  color: #2C3E50; /* Dark text color */
   border-radius: 10px; /* Rounded corners */
   margin-bottom: 10px; /* Adjust margin bottom as needed */
 }
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 150px;
-  background-color: #333;
+  width: 150px; /* Default width */
+  background-color: #34495E;
   padding-top: 20px;
 }
 
@@ -176,13 +178,26 @@ button:hover {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  color: #fff;
+  color: #FFFFFF;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #FFFFFF;
   cursor: pointer;
 }
 
 .sidebar button:hover {
-  background-color: #555;
+  background-color: #2C3E50;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full width on smaller screens */
+    height: auto; /* Allow content to push sidebar down */
+    padding-top: 0; /* Remove top padding */
+  }
+
+  .sidebar button {
+    border-bottom: none; /* Remove bottom border */
+  }
 }
