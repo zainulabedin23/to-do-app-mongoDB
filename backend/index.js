@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors({
 
     origin:["https://to-do-app-mongo-db-black.vercel.app"],
-      methods:['POST','GET'],
+      methods:['POST','GET','PUT'],
       credentials: true
     }));
     
