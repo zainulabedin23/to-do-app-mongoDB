@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors({
+
     origin:["https://to-do-app-six-dun.vercel.app/"],
       methods:['POST','GET'],
       credentials: true
