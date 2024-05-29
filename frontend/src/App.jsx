@@ -45,10 +45,18 @@ const App = () => {
 
   return (
     <main>
-      <div className="sidebar">
-        <button onClick={() => handleOptionChange("create")}>Create ToDo</button>
-        <button onClick={() => handleOptionChange("completed")}>Completed</button>
-      </div>
+      <aside>
+        <p>Menu</p>
+        <a  onClick={() => handleOptionChange("create")}>
+          <i className="fa fa-user-o" aria-hidden="true"></i>
+          Create ToDo
+        </a>
+        <a  onClick={() => handleOptionChange("completed")}>
+          <i className="fa fa-user-o" aria-hidden="true"></i>
+          Completed
+        </a>
+      </aside>
+
       <div className="container">
         <h1 className="title">ToDo App</h1>
         {selectedOption === "create" && (
@@ -87,7 +95,9 @@ const App = () => {
           setUpdateUI={setUpdateUI}
         />
       )}
+      <div className="container">
       {selectedOption === "completed" && <CompletedTasks completedTasks={toDos} onUpdateUI={handleUpdateUI} setUpdateUI={setUpdateUI} />}
+      </div>
     </main>
   );
 };

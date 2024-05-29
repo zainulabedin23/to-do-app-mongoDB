@@ -16,6 +16,6 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err) => console.error("MongoDB connection error:", err));
 
 // Use ToDoRouter for /api routes
-app.use("/api", new ToDoRouter().router); // Notice the change here
+app.use("/api", new ToDoRouter().router); 
 
 app.listen(PORT, () => console.log(`Listening at ${PORT}...`));
