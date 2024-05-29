@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors({
 
-    origin:["https://to-do-app-mongo-db-sooty.vercel.app"],
+    origin:["https://to-do-app-mongo-db-black.vercel.app"],
       methods:['POST','GET'],
       credentials: true
     }));
